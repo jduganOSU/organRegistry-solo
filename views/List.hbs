@@ -1,0 +1,52 @@
+<h1>Organ List Information</h1>
+    <nav>
+            <ul>
+                <li><a href="/organRegistry">Organ Registry Home</a></li>
+                <li><a href="/organRegistry/Organs">Organs</a></li>
+                <li><a href="/organRegistry/Recipients">Recipients</a></li>
+                <li><a href="/organRegistry/Donors">Donors</a></li>
+                <li><a href="/organRegistry/Transplants">Transplants</a></li>
+                <li><a href="/organRegistry/Match">Organ Recipient Match</a></li>
+                <li><a href="/organRegistry/List">Organ List</a></li>
+            </ul>    
+        </nav>
+
+{{!-- Create a table --}}
+<table id="list-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        <tr>
+            <th>Organ List ID</th>
+            <th>Organ Name</th>
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.idOrganList}}</td>
+            <td>{{this.organName}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{!-- Form to add a record to the table  --}}
+<div class="form-div">
+<h2>Add a new Organ Category</h2>
+<p>To add a new Organ Category, please enter the below info and 'Submit'!</p>
+<form id="add-list-form-ajax">
+    
+    <label for="input-organCat-list">Organ Name </label>
+    <input type="text" name="input-organCat-list" id="input-organCat-list" placeholder="Name of organ..">
+
+    <input type="submit">
+</form>
+</div>
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+<script src="/organRegistry/public/js/list/add_list.js"></script>
